@@ -1,0 +1,57 @@
+<!-- pages/register/register.wxml -->
+<view class="register-container">
+  <view class="register-card">
+    <view class="input-group">
+      <text class="label">操作员密码</text>
+      <input 
+        placeholder="请输入操作员密码"
+        value="{{operator_password}}"
+        bindinput="onOperatorPasswordInput"
+        password="{{true}}"
+        class="input-box"
+      />
+    </view>
+
+    <view class="input-group">
+      <text class="label">新用户用户名</text>
+      <input 
+        placeholder="请输入新用户用户名"
+        value="{{username}}"
+        bindinput="onUsernameInput"
+        class="input-box"
+      />
+    </view>
+
+    <view class="input-group">
+      <text class="label">新用户密码</text>
+      <input 
+        placeholder="请输入新用户密码"
+        value="{{password}}"
+        bindinput="onPasswordInput"
+        password="{{true}}"
+        class="input-box"
+      />
+    </view>
+
+    <view class="permission-section">
+      <text class="section-title">权限设置</text>
+      <view class="table-permission-group" wx:for="{{mainTables}}" wx:key="index">
+        <view class="input-group">
+          <text class="label">{{displayNameMap[item] || item}} 权限</text>
+          <picker 
+            range="{{permissionLevels}}" 
+            value="{{tablePermissions[item] || 0}}"
+            bindchange="onTablePermissionChange"
+            data-table="{{item}}"
+          >
+            <view class="picker-box">
+              <text class="picker-text">{{permissionLevels[tablePermissions[item] || 0]}}</text>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <button type="primary" class="submit-btn" bindtap="handleRegister">添加用户</button>
+  </view>
+</view>

@@ -1,0 +1,253 @@
+/* pages/my/my.wxss */
+.container {
+  min-height: 100vh;
+  background: #f7f8fa;
+  padding: 40rpx 20rpx;
+}
+
+/* 用户信息区域 */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx 0;
+  background: #fff;
+  border-radius: 24rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.05);
+}
+
+.avatar {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  margin-bottom: 20rpx;
+  border: 4rpx solid #fff;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.1);
+}
+
+.nickname {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 菜单列表 */
+.menu-list {
+  background: #fff;
+  border-radius: 24rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.05);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 24rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+  transition: background-color 0.2s;
+}
+
+.menu-item:active {
+  background-color: #f8f8f8;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.menu-text {
+  flex: 1;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.arrow-icon {
+  width: 32rpx;
+  height: 32rpx;
+  opacity: 0.3;
+}
+
+.user-details {
+  width: 100%;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.05);
+}
+
+.detail-item {
+  display: flex;
+  margin-bottom: 16rpx;
+}
+
+.label {
+  font-size: 28rpx;
+  color: #666;
+  width: 160rpx;
+}
+
+.value {
+  font-size: 28rpx;
+  color: #333;
+  flex: 1;
+}
+
+.my-container {
+  background: #f7f8fa;
+  min-height: 100vh;
+}
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100rpx;
+  position: relative;
+  background: #fff;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.03);
+}
+.icon-back {
+  width: 48rpx;
+  height: 48rpx;
+  margin-left: 32rpx;
+}
+.title {
+  flex: 1;
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #222;
+  margin-right: 80rpx;
+}
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32rpx;
+  margin-bottom: 16rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.03);
+  padding: 32rpx 0 8rpx 0;
+}
+.avatar-box {
+  position: relative;
+  width: 160rpx;
+  height: 200rpx;
+}
+.edit-avatar {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 56rpx;
+  height: 56rpx;
+  background: #07c160;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4rpx solid #fff;
+}
+.icon-edit {
+  width: 32rpx;
+  height: 32rpx;
+}
+.username {
+  margin-top: 18rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #222;
+  letter-spacing: 1rpx;
+}
+
+.info {
+  flex: 1;
+}
+
+.name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.email {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.history-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #222;
+  margin: 32rpx 0 16rpx 32rpx;
+}
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+  padding: 0 24rpx;
+}
+.history-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 14rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.06);
+  padding: 12rpx 14rpx;
+}
+.history-cover {
+  width: 72rpx;
+  height: 100rpx;
+  border-radius: 8rpx;
+  object-fit: cover;
+  margin-right: 14rpx;
+  box-shadow: 0 1rpx 4rpx rgba(0,0,0,0.04);
+}
+.history-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+.history-title {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 2rpx;
+  line-height: 1.2;
+}
+.history-author {
+  font-size: 20rpx;
+  color: #07c160;
+}
+.empty-history {
+  text-align: center;
+  color: #aaa;
+  font-size: 26rpx;
+  margin: 40rpx 0;
+}
+
+.history-btn {
+  width: 80vw;
+  margin: 32rpx auto 0 auto;
+  height: 64rpx;
+  background: #07c160;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 32rpx;
+  font-weight: bold;
+  border: none;
+  display: block;
+  text-align: center;
+}
+.history-btn:active {
+  background: #059948;
+}

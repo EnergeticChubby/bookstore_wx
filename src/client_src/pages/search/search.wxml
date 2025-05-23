@@ -1,0 +1,23 @@
+<!--pages/search/search.wxml-->
+<view class="search-bar-bg">
+  <view class="search-bar">
+    <input class="search-input"
+           placeholder="Please enter author, book title or ISBN"
+           value="{{searchText}}"
+           bindinput="onInput" />
+    <image class="search-camera" src="/images/camera.png" mode="aspectFit" />
+    <button class="search-btn" type="primary" bindtap="onSearch">Search</button>
+  </view>
+</view>
+<view wx:if="{{loading}}" class="loading">Searching...</view>
+
+<view class="result-list" wx:if="{{books.length > 0}}">
+  <view class="result-item" wx:for="{{books}}" wx:key="book_id" bindtap="goToBookInfo" data-book="{{item}}">
+    <image class="result-cover" src="{{item.cover_url ? 'http://8.134.168.88:8000' + item.cover_url : '/images/test.jpg'}}" mode="aspectFill"></image>
+    <view class="result-info">
+      <view class="result-title">{{item.isbn_name}}</view>
+      <view class="result-author">{{item.authors && item.authors.length > 0 ? item.authors.join(', ') : ''}}</view>
+      <view class="result-category">{{item.category_name}}</view>
+    </view>
+  </view>
+</view>

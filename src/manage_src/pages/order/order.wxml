@@ -1,0 +1,40 @@
+<!--pages/order/order.wxml-->
+<view class="container">
+  <view class="loading" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+  <view class="no-permission" wx:elif="{{noPermission}}">
+    <text>没有权限查看该页面</text>
+  </view>
+  <view class="order-list" wx:else>
+    <view class="order-item" wx:for="{{orders}}" wx:key="order_id" bindtap="onOrderTap" data-id="{{item.order_id}}">
+      <view class="order-header">
+        <text class="order-id">订单号: {{item.order_id}}</text>
+        <text class="order-status {{item.status}}">{{item.status}}</text>
+      </view>
+      <view class="order-info">
+        <view class="info-item"><text>下单时间：</text><text>{{item.order_time}}</text></view>
+        <view class="info-item"><text>收货地址：</text><text>{{item.shipping_address}}</text></view>
+        <view class="info-item"><text>下单用户：</text><text>{{item.username}}</text></view>
+        <view class="info-item"><text>总金额：</text><text style="color:#fa541c;font-weight:bold;">￥{{item.total_amount}}</text></view>
+      </view>
+      <view class="order-items">
+        <text style="font-weight:bold;">商品明细：</text>
+        <view wx:for="{{item.items}}" wx:key="book_id" class="item">
+          <view class="item-title">{{item.title}}</view>
+          <view class="item-detail-row">
+            <text class="book-quantity">×{{item.quantity}}</text>
+            <text class="book-price">￥{{item.unit_price}}</text>
+            <text>小计:￥{{item.subtotal}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="actions">
+        <button class="edit-btn" data-order-id="{{item.order_id}}" bindtap="navigateToEditOrder">编辑</button>
+      </view>
+    </view>
+    <view class="empty-list" wx:if="{{!orders.length}}">
+      暂无订单
+    </view>
+  </view>
+</view>

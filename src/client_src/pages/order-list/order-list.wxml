@@ -1,0 +1,49 @@
+<!-- 订单列表页面 -->
+<view class="order-list-container">
+  <!-- 导航栏 -->
+  <view class="nav-bar">
+    <view class="nav-item {{currentTab === 'pending' ? 'active' : ''}}" bindtap="switchTab" data-tab="pending">
+      待付款
+    </view>
+    <view class="nav-item {{currentTab === 'paid' ? 'active' : ''}}" bindtap="switchTab" data-tab="paid">
+      已付款
+    </view>
+    <view class="nav-item {{currentTab === 'delivered' ? 'active' : ''}}" bindtap="switchTab" data-tab="delivered">
+      已发货
+    </view>
+  </view>
+
+  <!-- 订单列表 -->
+  <view class="order-list">
+    <view class="order-item" wx:for="{{orderList}}" wx:key="order_id">
+      <view class="order-header">
+        <text class="order-id">订单号：{{item.order_id}}</text>
+        <text class="order-status">{{item.status}}</text>
+      </view>
+      <view class="book-list">
+        <view class="book-item" wx:for="{{item.items}}" wx:for-item="book" wx:key="book_id">
+          <image class="book-image" src="{{book.image}}" mode="aspectFill"></image>
+          <view class="book-info">
+            <text class="book-name">{{book.title}}</text>
+            <text class="book-price">¥{{book.unit_price}}</text>
+            <text class="book-quantity">x{{book.quantity}}</text>
+            <text class="book-subtotal">小计：¥{{book.subtotal}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="order-footer">
+        <text class="total-price">总计：¥{{item.total_amount}}</text>
+        <view class="button-group">
+          <button class="pay-btn" wx:if="{{currentTab === 'pending'}}" bindtap="goToPay" data-order="{{item}}">去支付</button>
+          <button class="cancel-btn" wx:if="{{currentTab === 'pending'}}" bindtap="cancelOrder" data-order-id="{{item.order_id}}">取消订单</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{!orderList.length}}">
+    <image src="/images/empty-order.png" mode="aspectFit"></image>
+    <text>暂无订单</text>
+  </view>
+</view> 

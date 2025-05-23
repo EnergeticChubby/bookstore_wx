@@ -1,0 +1,45 @@
+<!--pages/category/category.wxml-->
+<view class="container">
+  <!-- 分类导航栏 - 固定顶部 -->
+  <view wx:if="{{showCategoryNav}}" class="category-nav-wrapper">
+    <scroll-view class="category-nav-scroll" scroll-x="true" show-scrollbar="false">
+      <view class="category-nav">
+        <view class="nav-item {{currentCategory === index ? 'active' : ''}}" 
+              wx:for="{{categories}}" 
+              wx:key="index"
+              bindtap="switchCategory"
+              data-index="{{index}}">
+          {{item}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 分类内容展示区 -->
+  <view style="height: 40rpx;"></view>
+  <view class="category-content">
+    <view class="book-card-grid">
+      <view class="book-card" wx:for="{{books}}" wx:key="id">
+        <view class="book-card-top" style="background: {{item.bgColor}}">
+          <view class="book-bg">
+            <image class="book-cover" src="{{item.coverUrl}}" mode="aspectFill" data-index="{{index}}" bindtap="goToBookInfo"></image>
+          </view>
+        </view>
+        <view class="book-card-bottom">
+          <view class="book-title-row">
+            <view class="book-title">{{item.title}}</view>
+            <view class="book-rating">
+              <image src="/images/tabbar/star.png" class="star-icon"></image>
+              <text class="rating-text">{{item.rating}}</text>
+            </view>
+          </view>
+          <view class="book-author">{{item.author}}</view>
+          <view class="book-price">￥{{item.price}}</view>
+          <image class="arrow-icon" src="/images/tabbar/arrow.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="loading" wx:if="{{loading}}">加载中...</view>
+  </view>
+</view>
+<canvas canvas-id="color-canvas" style="width:10px;height:10px;display:none"></canvas>

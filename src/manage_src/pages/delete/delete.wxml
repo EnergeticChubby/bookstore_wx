@@ -1,0 +1,80 @@
+<!-- pages/delete/delete.wxml -->
+<view class="container">
+  <!-- 加载中显示 -->
+  <view class="loading" wx:if="{{isLoading}}">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 用户列表 -->
+  <view class="user-list" wx:if="{{!isLoading}}">
+    <view class="user-item" wx:for="{{users}}" wx:key="backend_user_id">
+      <view class="user-header">
+        <view class="user-title">
+          <text class="username">{{item.username}}</text>
+          <text class="status {{item.status === 'active' ? 'status-active' : 'status-inactive'}}">{{item.status}}</text>
+        </view>
+        <view class="button-group">
+          <button class="edit-btn" bindtap="handleEdit" data-username="{{item.username}}">修改</button>
+          <button class="delete-btn" bindtap="showDeleteConfirm" data-username="{{item.username}}">删除</button>
+        </view>
+      </view>
+      
+      <view class="permissions-section">
+        <view class="permission-row">
+          <view class="permission-item">
+            <text class="permission-label">后台用户</text>
+            <text class="permission-value {{item.permissions.BackendUser}}">{{item.permissions.BackendUser}}</text>
+          </view>
+          <view class="permission-item">
+            <text class="permission-label">用户管理</text>
+            <text class="permission-value {{item.permissions.User}}">{{item.permissions.User}}</text>
+          </view>
+        </view>
+        <view class="permission-row">
+          <view class="permission-item">
+            <text class="permission-label">订单管理</text>
+            <text class="permission-value {{item.permissions.Order}}">{{item.permissions.Order}}</text>
+          </view>
+          <view class="permission-item">
+            <text class="permission-label">书籍管理</text>
+            <text class="permission-value {{item.permissions.Book}}">{{item.permissions.Book}}</text>
+          </view>
+        </view>
+        <view class="permission-row">
+          <view class="permission-item">
+            <text class="permission-label">作者管理</text>
+            <text class="permission-value {{item.permissions.Author}}">{{item.permissions.Author}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 删除确认弹窗 -->
+  <view class="modal" wx:if="{{showDeleteModal}}">
+    <view class="modal-mask" bindtap="hideDeleteModal"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <text class="modal-title">删除管理员</text>
+        <text class="modal-subtitle">请输入操作员密码以确认删除</text>
+      </view>
+      <view class="modal-body">
+        <view class="form-item">
+          <input 
+            class="input" 
+            type="password" 
+            placeholder="请输入操作员密码" 
+            value="{{operatorPassword}}"
+            bindinput="onPasswordInput"
+            password
+            focus="{{showDeleteModal}}"
+          />
+        </view>
+      </view>
+      <view class="modal-footer">
+        <button class="btn btn-default" bindtap="hideDeleteModal">取消</button>
+        <button class="btn btn-danger" bindtap="confirmDelete">确认删除</button>
+      </view>
+    </view>
+  </view>
+</view>

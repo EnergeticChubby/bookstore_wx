@@ -1,0 +1,130 @@
+<view class="container">
+  <view class="form-group" wx:if="{{!isLoading}}">
+    <view class="form-item">
+      <text class="label">ISBN</text>
+      <input 
+        type="text" 
+        value="{{formData.isbn}}" 
+        data-field="isbn"
+        bindinput="onInputChange"
+        placeholder="请输入ISBN"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">书名</text>
+      <input 
+        type="text" 
+        value="{{formData.name}}" 
+        data-field="name"
+        bindinput="onInputChange"
+        placeholder="请输入书名"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">分类</text>
+      <input 
+        type="text" 
+        value="{{formData.category_name}}" 
+        data-field="category_name"
+        bindinput="onInputChange"
+        placeholder="请输入分类"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">出版社</text>
+      <input 
+        type="text" 
+        value="{{formData.publisher_name}}" 
+        data-field="publisher_name"
+        bindinput="onInputChange"
+        placeholder="请输入出版社"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">价格</text>
+      <input 
+        type="digit" 
+        value="{{formData.price}}" 
+        data-field="price"
+        bindinput="onInputChange"
+        placeholder="请输入价格"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">库存</text>
+      <input 
+        type="number" 
+        value="{{formData.stock}}" 
+        data-field="stock"
+        bindinput="onInputChange"
+        placeholder="请输入库存数量"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">描述</text>
+      <textarea 
+        value="{{formData.description}}" 
+        data-field="description"
+        bindinput="onInputChange"
+        placeholder="请输入书籍描述"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">作者信息</text>
+      <view class="author-list">
+        <view class="author-item" wx:for="{{formData.authors}}" wx:key="index">
+          <view class="author-header">
+            <text class="author-title">作者 {{index + 1}}</text>
+            <text class="delete-author" bindtap="deleteAuthor" data-index="{{index}}" wx:if="{{index > 0}}">删除</text>
+          </view>
+          <input 
+            type="text" 
+            value="{{item.name}}" 
+            data-field="name"
+            data-index="{{index}}"
+            bindinput="onAuthorInputChange"
+            placeholder="请输入作者姓名"
+          />
+          <textarea 
+            value="{{item.biography}}" 
+            data-field="biography"
+            data-index="{{index}}"
+            bindinput="onAuthorInputChange"
+            placeholder="请输入作者简介"
+          />
+        </view>
+      </view>
+      <view class="add-author" bindtap="addAuthor">
+        <text class="add-icon">+</text>
+        <text>添加作者</text>
+      </view>
+    </view>
+
+    <view class="form-item">
+      <text class="label">封面图片</text>
+      <view class="image-upload" bindtap="chooseImage">
+        <image 
+          wx:if="{{formData.cover}}" 
+          src="{{formData.cover}}" 
+          mode="aspectFit"
+        />
+        <view wx:else class="upload-placeholder">
+          <text>点击选择图片</text>
+        </view>
+      </view>
+    </view>
+
+    <button class="submit-btn" bindtap="submitForm">添加书籍</button>
+  </view>
+
+  <view wx:else class="loading">
+    <text>加载中...</text>
+  </view>
+</view> 

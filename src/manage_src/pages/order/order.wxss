@@ -1,0 +1,175 @@
+/* pages/order/order.wxss */
+.container {
+  padding: 20rpx;
+}
+
+.loading, .no-permission {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+
+.loading-spinner {
+  width: 60rpx;
+  height: 60rpx;
+  border: 6rpx solid #f3f3f3;
+  border-top: 6rpx solid #007AFF;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.order-list {
+  padding: 20rpx 0;
+}
+
+.order-item {
+  background: #fff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 4rpx rgba(0,0,0,0.1);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.order-id {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.order-status {
+  font-size: 24rpx;
+  padding: 8rpx 16rpx;
+  border-radius: 6rpx;
+}
+
+.order-status.pending {
+  background: #fff7e6;
+  color: #fa8c16;
+}
+
+.order-status.paid {
+  background: #e6f7ff;
+  color: #1890ff;
+}
+
+.order-status.shipped {
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+.order-status.delivered {
+  background: #f9f0ff;
+  color: #722ed1;
+}
+
+.order-status.canceled {
+  background: #fff1f0;
+  color: #f5222d;
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.book-title {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.order-date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.empty-list {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding: 40rpx;
+  background: #fff;
+  border-radius: 12rpx;
+}
+
+.order-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.info-item {
+  font-size: 26rpx;
+  color: #666;
+  flex: 1;
+  min-width: 45%;
+}
+
+.order-items {
+  background: #fafafa;
+  border-radius: 8rpx;
+  padding: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  padding: 12rpx 0 12rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+.item:last-child {
+  border-bottom: none;
+}
+.item-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 6rpx;
+}
+.item-detail-row {
+  display: flex;
+  gap: 24rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+.book-quantity {
+  color: #666;
+  margin: 0 8rpx;
+}
+.book-price {
+  color: #fa541c;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16rpx;
+}
+
+.edit-btn {
+  font-size: 24rpx;
+  padding: 8rpx 24rpx;
+  background: #007AFF;
+  color: #fff;
+  border-radius: 24rpx;
+  border: none;
+  line-height: 1.5;
+}

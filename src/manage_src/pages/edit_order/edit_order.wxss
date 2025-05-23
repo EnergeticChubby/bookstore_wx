@@ -1,0 +1,151 @@
+/* pages/edit_order/edit_order.wxss */
+.container {
+  padding: 30rpx;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -10vh;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300rpx;
+}
+
+.loading-spinner {
+  width: 60rpx;
+  height: 60rpx;
+  border: 6rpx solid #f3f3f3;
+  border-top: 6rpx solid #007AFF;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.edit-form {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  width: 100%;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.label {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.current-status {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+  padding: 12rpx 24rpx;
+  background: #fafafa;
+  border-radius: 8rpx;
+  display: inline-block;
+  text-align: center;
+  min-width: 120rpx;
+}
+
+/* 添加状态颜色样式 */
+.current-status.pending {
+  background: #fff7e6;
+  color: #fa8c16;
+}
+
+.current-status.paid {
+  background: #e6f7ff;
+  color: #1890ff;
+}
+
+.current-status.shipped {
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+.current-status.delivered {
+  background: #f9f0ff;
+  color: #722ed1;
+}
+
+.current-status.canceled {
+  background: #fff1f0;
+  color: #f5222d;
+}
+
+.status-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  margin-top: 10rpx;
+}
+
+.status-option {
+  padding: 16rpx 32rpx;
+  background: #f0f2f5;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  color: #333;
+  transition: all 0.3s;
+}
+
+.status-option.current {
+  background: #e6f7ff;
+  color: #1890ff;
+}
+
+.no-options {
+  width: 100%;
+  padding: 20rpx;
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  background: #fafafa;
+  border-radius: 8rpx;
+}
+
+.form-actions {
+  margin-top: 50rpx;
+  display: flex;
+  justify-content: space-between;
+  gap: 30rpx;
+}
+
+.cancel-btn, .submit-btn {
+  flex: 1;
+  height: 80rpx;
+  border-radius: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+}
+
+.cancel-btn {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.submit-btn {
+  background-color: #007AFF;
+  color: #fff;
+}
+
+.submit-btn[disabled] {
+  background-color: #ccc;
+  color: #fff;
+} 

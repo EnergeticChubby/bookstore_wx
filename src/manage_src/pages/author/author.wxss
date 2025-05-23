@@ -1,0 +1,375 @@
+/* pages/author/author.wxss */
+.container {
+  padding: 20rpx;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.search-bar {
+  display: flex;
+  margin-bottom: 20rpx;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 8rpx;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 4rpx;
+  margin-right: 20rpx;
+}
+
+.search-bar button {
+  width: 160rpx;
+  font-size: 28rpx;
+  background: #007aff;
+  color: #fff;
+  border-radius: 4rpx;
+  line-height: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.search-bar button:active {
+  opacity: 0.8;
+}
+
+.author-list {
+  height: calc(100vh - 180rpx);
+  margin-top: 20rpx;
+  position: relative;
+}
+
+.author-list::-webkit-scrollbar {
+  width: 80rpx;
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+}
+
+.author-list::-webkit-scrollbar-track {
+  background: transparent;
+  width: 80rpx;
+}
+
+.author-list::-webkit-scrollbar-thumb {
+  background-color: #007aff;
+  border-radius: 40rpx;
+  min-height: 200rpx;
+}
+
+.author-item {
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 8rpx;
+  box-shadow: 0 2rpx 4rpx rgba(0,0,0,0.1);
+}
+
+.author-info {
+  margin-bottom: 20rpx;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.info-cell {
+  padding: 10rpx;
+}
+
+.name-row {
+  padding: 10rpx;
+  border-top: 1rpx solid #eee;
+  margin-top: 10rpx;
+}
+
+.bio-row {
+  padding: 20rpx;
+  background: #f8f9fa;
+  border-radius: 8rpx;
+  margin-top: 16rpx;
+}
+
+.bio-row .label {
+  display: block;
+  margin-bottom: 12rpx;
+  font-weight: 500;
+}
+
+.bio-row .value {
+  display: block;
+  line-height: 1.6;
+  color: #333;
+  font-size: 28rpx;
+  min-height: 44rpx;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+.label {
+  color: #666;
+  font-size: 28rpx;
+  margin-right: 10rpx;
+}
+
+.value {
+  color: #333;
+  font-size: 28rpx;
+}
+
+.name-row .value {
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 20rpx;
+  margin-top: 24rpx;
+}
+
+.edit-bio-btn {
+  margin: 0;
+  width: 280rpx;
+  background: #007aff;
+  color: #fff;
+  font-size: 28rpx;
+  padding: 12rpx 0;
+  border-radius: 8rpx;
+  line-height: 1.5;
+  font-weight: 500;
+  box-shadow: 0 2rpx 8rpx rgba(0,122,255,0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-bio-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 1rpx 4rpx rgba(0,122,255,0.2);
+}
+
+.loading {
+  text-align: center;
+  color: #888;
+  margin-top: 100rpx;
+}
+
+.no-permission {
+  text-align: center;
+  color: #ff4d4f;
+  margin-top: 100rpx;
+}
+
+.no-data {
+  text-align: center;
+  color: #888;
+  margin-top: 100rpx;
+}
+
+/* 作者书籍列表样式 */
+.author-books {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+}
+
+.books-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 0;
+  color: #07c160;
+  font-size: 28rpx;
+}
+
+.toggle-icon {
+  font-size: 24rpx;
+}
+
+.book-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+}
+
+.book-cover {
+  width: 120rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+  border-radius: 4rpx;
+}
+
+.book-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.book-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.book-price {
+  font-size: 26rpx;
+  color: #e64340;
+}
+
+.book-stock {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.book-actions {
+  margin-left: 20rpx;
+  display: flex;
+  gap: 10rpx;
+}
+
+.add-book-btn {
+  margin-top: 20rpx;
+  width: 100%;
+  background: #007aff;
+  color: #fff;
+  font-size: 28rpx;
+  padding: 10rpx 0;
+  border-radius: 4rpx;
+}
+
+.author-header {
+  padding: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.author-name-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.author-actions {
+  display: flex;
+  align-items: center;
+}
+
+.edit-btn {
+  font-size: 28rpx;
+  color: #007aff;
+  padding: 10rpx 20rpx;
+  background: none;
+  border: none;
+  line-height: 1;
+}
+
+.edit-btn:active {
+  opacity: 0.7;
+}
+
+.loading-more {
+  text-align: center;
+  padding: 20rpx 0;
+  color: #999;
+  font-size: 24rpx;
+}
+
+/* 分页控件样式 */
+.pagination {
+  margin: 20rpx;
+  padding: 20rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+}
+
+.page-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx 40rpx;
+  margin-bottom: 120rpx;
+  gap: 40rpx;
+  position: relative;
+}
+
+.page-btn, .confirm-btn {
+  font-size: 24rpx;
+  padding: 8rpx 24rpx;
+  background: #007aff;
+  color: #fff;
+  line-height: 1.5;
+  white-space: nowrap;
+  min-width: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.page-btn[disabled] {
+  background: #ccc;
+  color: #fff;
+}
+
+/* 搜索状态下的分页按钮样式 */
+.isSearching .page-btn,
+.isSearching .confirm-btn {
+  background: #007aff;
+  color: #fff;
+}
+
+.isSearching .page-btn[disabled] {
+  background: #ccc;
+  color: #fff;
+}
+
+.page-input-wrapper {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 6rpx;
+  padding: 4rpx 12rpx;
+  border: 1rpx solid #ddd;
+}
+
+.page-input {
+  width: 60rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.page-separator {
+  color: #666;
+  font-size: 24rpx;
+  margin: 0 8rpx;
+}
+
+.total-pages {
+  color: #666;
+  font-size: 24rpx;
+  margin-right: 8rpx;
+} 

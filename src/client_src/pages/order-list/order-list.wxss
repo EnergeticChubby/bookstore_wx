@@ -1,0 +1,199 @@
+.order-list-container {
+  min-height: 100vh;
+  background: #f6ffed;
+}
+
+/* 导航栏样式 */
+.nav-bar {
+  display: flex;
+  background: #fff;
+  padding: 20rpx 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1rpx solid #e6f9f0;
+}
+
+.nav-item {
+  flex: 1;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+  padding: 20rpx 0;
+  transition: color 0.2s;
+}
+
+.nav-item.active {
+  color: #07c160;
+  font-weight: bold;
+}
+
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 4rpx;
+  background: #07c160;
+  border-radius: 2rpx;
+}
+
+/* 订单列表样式 */
+.order-list {
+  padding: 20rpx;
+}
+
+.order-item {
+  background: #fff;
+  border-radius: 18rpx;
+  margin-bottom: 32rpx;
+  padding: 28rpx 24rpx;
+  box-shadow: 0 4rpx 24rpx rgba(7,193,96,0.06);
+  border: 1rpx solid #e6f9f0;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #e6f9f0;
+}
+
+.order-id {
+  font-size: 28rpx;
+  color: #222;
+  font-weight: bold;
+}
+
+.order-status {
+  font-size: 26rpx;
+  color: #ff4d4f;
+  background: #e6f9f0;
+  border-radius: 20rpx;
+  padding: 4rpx 18rpx;
+  margin-left: 12rpx;
+  font-weight: bold;
+}
+
+.book-list {
+  padding: 20rpx 0;
+}
+
+.book-item {
+  display: flex;
+  margin-bottom: 20rpx;
+  align-items: center;
+}
+
+.book-image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  background: #f6ffed;
+  object-fit: cover;
+  border: 1rpx solid #e6f9f0;
+}
+
+.book-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8rpx;
+}
+
+.book-name {
+  font-size: 30rpx;
+  color: #222;
+  font-weight: 500;
+}
+
+.book-author {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 10rpx;
+}
+
+.book-price {
+  color: #222;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.book-quantity {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.book-subtotal {
+  font-size: 24rpx;
+  color: #222;
+  font-weight: 500;
+}
+
+.order-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #e6f9f0;
+}
+
+.total-price {
+  font-size: 32rpx;
+  color: #222;
+  font-weight: bold;
+}
+
+.button-group {
+  display: flex;
+  gap: 16rpx;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.pay-btn, .cancel-btn {
+  min-width: 140rpx;
+  max-width: 44vw;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  padding: 12rpx 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 400px) {
+  .button-group {
+    flex-direction: column;
+    gap: 12rpx;
+    align-items: stretch;
+  }
+  .pay-btn, .cancel-btn {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* 空状态样式 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 200rpx;
+}
+
+.empty-state image {
+  width: 260rpx;
+  height: 260rpx;
+  margin-bottom: 36rpx;
+}
+
+.empty-state text {
+  color: #bbb;
+  font-size: 32rpx;
+  font-weight: 500;
+} 

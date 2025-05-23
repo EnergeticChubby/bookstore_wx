@@ -1,0 +1,96 @@
+<view class="container">
+  <!-- 表格数据展示区域 -->
+  <view class="section">
+    <view class="section-title">数据表格</view>
+    <view class="table">
+      <view class="table-row header">
+        <view class="table-cell">ID</view>
+        <view class="table-cell">内容</view>
+      </view>
+      <view class="table-row" wx:for="{{tableData}}" wx:key="id">
+        <view class="table-cell">{{item.id}}</view>
+        <view class="table-cell">{{item.content}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 输入框和提交按钮区域 -->
+  <view class="section">
+  <view class="section-title">数据提交</view>
+  <view class="input-group">
+    <input class="input" 
+           type="text" 
+           placeholder="请输入username" 
+           value="{{formData.username}}"
+           bindinput="handleUsernameInput"/>
+  </view>
+  <view class="input-group">
+    <input class="input" 
+           type="text" 
+           placeholder="请输入realname" 
+           value="{{formData.realname}}"
+           bindinput="handleRealnameInput"/>
+  </view>
+  <view class="input-group">
+    <input class="input" 
+           type="text" 
+           placeholder="请输入gender" 
+           value="{{formData.gender}}"
+           bindinput="handleGenderInput"/>
+  </view>
+  <view class="input-group">
+    <input class="input" 
+           type="text" 
+           placeholder="请输入email" 
+           value="{{formData.email}}"
+           bindinput="handleEmailInput"/>
+  </view>
+  
+  <button class="submit-btn" bindtap="submitData">提交</button>
+</view>
+
+  <!-- 后端回复展示区域 -->
+  <view class="section">
+    <view class="section-title">后端回复</view>
+    <view class="response-box">
+      <text>{{responseText}}</text>
+      <button class="refresh-btn" bindtap="getResponse">刷新回复</button>
+    </view>
+  </view>
+</view> 
+
+<view class="detail-bg">
+  <image class="book-cover" src="{{book.coverUrl}}" mode="aspectFill"></image>
+  <view class="book-info-bar">
+    <view class="star">
+      <image src="/images/star.png" class="icon-star"></image>
+      <text>{{book.rating}}</text>
+    </view>
+    <view class="category">{{book.category}}</view>
+    <view class="pages">{{book.pages}} Pages</view>
+  </view>
+
+  <view class="book-title">{{book.title}}</view>
+  <view class="book-author">{{book.author}}</view>
+  <view class="book-rating">
+    <block wx:for="{{[1,2,3,4,5]}}" wx:key="*this">
+      <image src="/images/star{{item <= Math.floor(book.rating) ? '' : '-half'}}.png" class="icon-star"></image>
+    </block>
+    <text class="score">{{book.rating}}</text>
+    <text class="score-total">/ 5.0</text>
+  </view>
+  <view class="book-desc">{{book.desc}}</view>
+
+  <button class="buy-btn">Buy Now for ${{book.price}}</button>
+</view> 
+
+<view class="recommend-list">
+  <block wx:for="{{recommendBooks}}" wx:key="book_id">
+    <view class="recommend-item">
+      <image src="{{item.cover_url}}" class="cover"></image>
+      <view class="title">{{item.isbn_name}}</view>
+      <view class="category">{{item.category_name}}</view>
+      <view class="price">￥{{item.price}}</view>
+    </view>
+  </block>
+</view> 

@@ -1,0 +1,108 @@
+/* pages/search/search.wxss */
+.search-bar-bg {
+  width: 100vw;
+  background: #e6f9f0;
+  padding: 32rpx 0 18rpx 0;
+  display: flex;
+  justify-content: center;
+}
+.search-bar {
+  width: 92vw;
+  background: #fff;
+  border-radius: 36rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 16rpx 0 24rpx;
+  box-shadow: 0 4rpx 18rpx rgba(7,193,96,0.08);
+}
+.search-input {
+  flex: 1;
+  height: 60rpx;
+  border: none;
+  border-radius: 30rpx;
+  padding: 0 16rpx;
+  font-size: 30rpx;
+  background: transparent;
+  outline: none;
+  color: #222;
+}
+.search-camera {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 12rpx;
+  opacity: 0.6;
+  filter: grayscale(1);
+}
+.search-btn {
+  height: 44rpx;
+  min-width: 56rpx;
+  font-size: 22rpx;
+  border-radius: 22rpx;
+  background: linear-gradient(90deg, #34e89e 0%, #07c160 100%);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 2rpx 8rpx rgba(7,193,96,0.10);
+  transition: background 0.2s;
+  padding: 0 18rpx;
+  letter-spacing: 1rpx;
+}
+.search-btn:active {
+  background: #059948;
+}
+.loading {
+  text-align: center;
+  color: #07c160;
+  font-size: 28rpx;
+  margin-top: 32rpx;
+  letter-spacing: 2rpx;
+}
+.result-list {
+  margin: 28rpx 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22rpx;
+  padding: 0 18rpx;
+}
+.result-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 18rpx;
+  box-shadow: 0 4rpx 16rpx rgba(7,193,96,0.06);
+  padding: 18rpx 18rpx;
+  transition: box-shadow 0.2s;
+}
+.result-item:active {
+  box-shadow: 0 8rpx 24rpx rgba(7,193,96,0.12);
+}
+.result-cover {
+  width: 90rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  object-fit: cover;
+  margin-right: 18rpx;
+  box-shadow: 0 2rpx 8rpx rgba(7,193,96,0.04);
+  background: #e6f9f0;
+}
+.result-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+.result-title {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 2rpx;
+  line-height: 1.2;
+}
+.result-author {
+  font-size: 22rpx;
+  color: #07c160;
+}
+.result-category {
+  font-size: 20rpx;
+  color: #888;
+}

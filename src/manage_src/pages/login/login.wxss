@@ -1,0 +1,61 @@
+/* pages/login/login.wxss */
+.login-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+  padding: 0 40rpx;
+}
+
+.login-card {
+  width: 100%;
+  padding: 60rpx 40rpx;
+  background: #ffffff;
+  border-radius: 24rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.08);
+}
+
+.input-group {
+  margin-bottom: 50rpx;
+}
+
+.label {
+  display: block;
+  color: #666666;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+
+.input-box {
+  height: 88rpx;
+  padding: 0 24rpx;
+  border: 1rpx solid #eeeeee;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  background: #fafafa;
+}
+
+.submit-btn {
+  margin-top: 60rpx;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  background: #007AFF;
+}
+
+.submit-btn:active {
+  opacity: 0.9;
+}
+
+.loading-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+}
+
+.loading-text {
+  font-size: 32rpx;
+  color: #999;
+}

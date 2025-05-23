@@ -1,0 +1,11 @@
+<view class="history-title">Browsing History</view>
+<view class="history-list" wx:if="{{historyBooks.length > 0}}">
+  <view class="history-item" wx:for="{{historyBooks}}" wx:key="book_id">
+    <image class="history-cover" src="{{item.cover_url ? 'http://8.134.168.88:8000' + item.cover_url : '/images/test.jpg'}}" mode="aspectFill"></image>
+    <view class="history-info">
+      <view class="history-title">{{item.isbn_name}}</view>
+      <view class="history-author">{{item.authors && item.authors.length > 0 ? item.authors.join(', ') : ''}}</view>
+    </view>
+  </view>
+</view>
+<view wx:else class="empty-history">No browsing history yet.</view> 

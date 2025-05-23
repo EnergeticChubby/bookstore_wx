@@ -1,0 +1,91 @@
+.container {
+  padding: 40rpx;
+  min-height: 100vh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.privacy-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60rpx;
+}
+
+.logo {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.privacy-content {
+  flex: 1;
+}
+
+.section {
+  margin-bottom: 40rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.section-text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.privacy-list {
+  margin-top: 20rpx;
+}
+
+.privacy-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16rpx;
+}
+
+.dot {
+  color: #666;
+  margin-right: 10rpx;
+  font-size: 28rpx;
+}
+
+.privacy-footer {
+  margin-top: 60rpx;
+  padding-bottom: 40rpx;
+}
+
+.auth-btn {
+  width: 100%;
+  height: 88rpx;
+  background: #1890ff;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30rpx;
+}
+
+.privacy-link {
+  font-size: 28rpx;
+  color: #1890ff;
+  text-align: center;
+  display: block;
+} 

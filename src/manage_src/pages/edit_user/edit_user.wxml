@@ -1,0 +1,68 @@
+<!-- pages/edit_user/edit_user.wxml -->
+<view class="container">
+  <!-- 加载中显示 -->
+  <view class="loading" wx:if="{{isLoading}}">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 权限不足提示 -->
+  <view class="no-permission" wx:elif="{{!hasPermission && permissionChecked}}">
+    <text>没有编辑权限</text>
+  </view>
+
+  <!-- 编辑表单 -->
+  <view class="edit-form" wx:elif="{{hasPermission}}">
+    <view class="form-item">
+      <text class="label">姓名</text>
+      <input 
+        type="text" 
+        value="{{formData.real_name}}"
+        placeholder="请输入姓名"
+        data-field="real_name"
+        bindinput="onFormChange"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">性别</text>
+      <picker 
+        mode="selector" 
+        range="{{genderOptions}}" 
+        value="{{genderOptions.indexOf(formData.gender === 'M' ? 'Male' : formData.gender === 'F' ? 'Female' : formData.gender === 'O' ? 'Other' : '')}}"
+        data-field="gender"
+        bindchange="onFormChange"
+      >
+        <view class="picker">{{formData.gender === 'M' ? 'Male' : formData.gender === 'F' ? 'Female' : formData.gender === 'O' ? 'Other' : '请选择性别'}}</view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">邮箱</text>
+      <input 
+        type="text" 
+        value="{{formData.email}}"
+        placeholder="请输入邮箱"
+        data-field="email"
+        bindinput="onFormChange"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">状态</text>
+      <picker 
+        mode="selector" 
+        range="{{statusOptions}}" 
+        value="{{statusOptions.indexOf(formData.status)}}"
+        data-field="status"
+        bindchange="onFormChange"
+      >
+        <view class="picker">{{formData.status || '请选择状态'}}</view>
+      </picker>
+    </view>
+
+    <view class="form-actions">
+      <button class="cancel-btn" bindtap="handleCancel">取消</button>
+      <button class="submit-btn" bindtap="handleSubmit">保存</button>
+    </view>
+  </view>
+</view> 

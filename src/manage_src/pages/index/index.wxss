@@ -1,0 +1,64 @@
+/* pages/index/index.wxss */
+.index-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18rpx 28rpx 0 28rpx;
+  background: #f8f8f8;
+}
+
+.welcome-text {
+  font-size: 40rpx;
+  color: #666;
+  text-align: center;
+  margin-bottom: 16rpx;
+  width: 100%;
+}
+
+.management-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.management-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 36rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.08);
+  margin: 18rpx 0;
+  height: 170rpx;
+}
+
+.management-item:nth-child(1) {
+  background-color: #f0f2f5; /* 用户管理 - 高级灰 */
+}
+
+.management-item:nth-child(2) {
+  background-color: #e8f5e9; /* 书籍管理 - 高级绿 */
+}
+
+.management-item:nth-child(3) {
+  background-color: #e3f2fd; /* 订单管理 - 高级蓝 */
+}
+
+.management-icon {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.management-text {
+  font-size: 40rpx;
+  color: #333;
+  text-align: left;
+}

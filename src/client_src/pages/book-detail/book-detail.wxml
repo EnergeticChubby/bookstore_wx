@@ -1,0 +1,30 @@
+<!--pages/book-detail/book-detail.wxml-->
+<view wx:if="{{!loading && book}}" class="detail-bg">
+  <!-- 封面大卡片 -->
+  <view class="cover-card">
+    <image class="book-cover" src="{{book.coverUrl}}" mode="aspectFill"></image>
+  </view>
+
+  <!-- 分类、评分、页数横向卡片 -->
+  <view class="info-row-card">
+    <view class="info-badge rating-badge">
+      <image src="/images/tabbar/star.png" class="badge-star" />
+      <text class="badge-text">{{book.rating}}</text>
+    </view>
+    <view class="info-badge category-badge">
+      <text class="badge-text">{{book.category}}</text>
+    </view>
+    <view class="info-badge pages-badge">
+      <text class="badge-text">{{book.pages}} Pages</text>
+    </view>
+  </view>
+
+  <!-- 书名 -->
+  <view class="book-title">{{book.title}}</view>
+  <!-- 简介 -->
+  <view class="book-desc">{{book.desc}}</view>
+  <view class="buy-btn-container">
+    <button class="buy-btn" type="primary">Buy Now for ${{book.price}}</button>
+  </view>
+</view>
+<view wx:if="{{loading}}" class="loading">加载中...</view>

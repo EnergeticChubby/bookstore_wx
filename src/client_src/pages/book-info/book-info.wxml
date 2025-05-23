@@ -1,0 +1,42 @@
+<view wx:if="{{loading}}" class="loading">加载中...</view>
+<view wx:if="{{!loading}}" class="detail-bg">
+  <!-- 顶部色块区域（只到星级上方） -->
+  <view class="top-bg-block" style="background: {{book.bg_color || '#f7f7f7'}}">
+    <!-- 封面大卡片 -->
+    <view class="cover-card">
+      <image class="book-cover" src="{{book.cover_url ? 'http://8.134.168.88:8000' + book.cover_url : '/images/test.jpg'}}" mode="aspectFill"></image>
+    </view>
+  </view>
+  <!-- 分类、评分、页数横向卡片（白色背景） -->
+  <view class="info-row-card">
+    <view class="info-badge rating-badge">
+      <image src="/images/tabbar/star.png" class="badge-star" />
+      <text class="badge-text">{{book.rating || '4.5'}}</text>
+    </view>
+    <view class="info-badge category-badge">
+      <text class="badge-text">{{book.category_name}}</text>
+    </view>
+    <view class="info-badge pages-badge">
+      <text class="badge-text">{{book.pages}} Pages</text>
+    </view>
+  </view>
+
+  <!-- 书名 -->
+  <view class="book-title">{{book.isbn_name}}</view>
+  <!-- 作者，兼容写法 -->
+  <view class="book-author">
+    {{ (book.authors && book.authors.length) ? book.authors.join(', ') : (book.author || book.author_name || book.publisher_name || '无作者信息') }}
+  </view>
+  <!-- 简介 -->
+  <view class="book-desc">{{book.description}}</view>
+
+  <!-- 购买按钮 -->
+  <view class="buy-btn-container">
+    <button class="buy-btn" type="primary" bindtap="addToCart">Buy Now for ￥{{book.price}}</button>
+  </view>
+  <!-- 调试：页面底部单独显示book数据 -->
+  <view style="color:red;font-size:30rpx;background:yellow;">
+    {{ JSON.stringify(book) }}
+  </view>
+</view>
+<view wx:else class="loading">未找到书籍信息</view> 

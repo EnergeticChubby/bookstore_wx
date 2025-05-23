@@ -1,0 +1,33 @@
+<!--pages/edit_order/edit_order.wxml-->
+<view class="container">
+  <view class="loading" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+  </view>
+  <view class="no-permission" wx:elif="{{noPermission}}">无权限修改</view>
+  <view class="edit-form" wx:else>
+    <view class="form-item">
+      <text class="label">当前状态</text>
+      <view class="current-status {{status}}">{{status || '加载中...'}}</view>
+    </view>
+    <view class="form-item">
+      <text class="label">可修改为</text>
+      <view class="status-options">
+        <view class="status-option {{item === status ? 'current' : ''}}" 
+              wx:for="{{availableStatuses}}" 
+              wx:key="*this"
+              bindtap="onStatusSelect"
+              data-status="{{item}}">
+          {{item}}
+        </view>
+        <view class="no-options" wx:if="{{!availableStatuses.length}}">
+          当前状态不可修改
+        </view>
+      </view>
+    </view>
+
+    <view class="form-actions">
+      <button class="cancel-btn" bindtap="onCancel">取消</button>
+      <button class="submit-btn" bindtap="onSubmit" loading="{{loading}}" disabled="{{!availableStatuses.length}}">确定</button>
+    </view>
+  </view>
+</view> 

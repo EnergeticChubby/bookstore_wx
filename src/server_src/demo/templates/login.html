@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            color: #1a73e8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #5f6368;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dadce0;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #1a73e8;
+            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #1557b0;
+        }
+
+        .options {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .error {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>用户登录</h2>
+        <form id="loginForm" action="/login/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <input type="text" id="username" name="username" required>
+                <div class="error" id="usernameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" id="password" name="password" required>
+                <div class="error" id="passwordError"></div>
+            </div>
+
+            <div class="options">
+                <label>
+                    <input type="checkbox" name="remember"> 记住我
+                </label>
+                <a href="#">忘记密码？</a>
+            </div>
+
+            <button type="submit">登录</button>
+        </form>
+        <div class="register-link">
+            <p>还没有账号？ <a href="#">立即注册</a></p>
+        </div>
+        <span style="color:red;">{{ error }}</span>
+    </div>
+
+{#    <script>#}
+{#        // 简单的表单验证示例#}
+{#        document.getElementById('loginForm').addEventListener('submit', function(e) {#}
+{#            e.preventDefault();#}
+{##}
+{#            const username = document.getElementById('username').value;#}
+{#            const password = document.getElementById('password').value;#}
+{#            const usernameError = document.getElementById('usernameError');#}
+{#            const passwordError = document.getElementById('passwordError');#}
+{##}
+{#            // 重置错误信息#}
+{#            usernameError.style.display = 'none';#}
+{#            passwordError.style.display = 'none';#}
+{##}
+{#            if (username.trim() === '') {#}
+{#                usernameError.textContent = '用户名不能为空';#}
+{#                usernameError.style.display = 'block';#}
+{#            }#}
+{##}
+{#            if (password.trim() === '') {#}
+{#                passwordError.textContent = '密码不能为空';#}
+{#                passwordError.style.display = 'block';#}
+{#            }#}
+{##}
+{#            // 这里可以添加实际的登录逻辑#}
+{#            if (username && password) {#}
+{#                // 登录逻辑（需要后端支持）#}
+{#                alert('登录成功（示例）');#}
+{#                // 重置表单#}
+{#                this.reset();#}
+{#            }#}
+{#        });#}
+{#    </script>#}
+</body>
+</html>

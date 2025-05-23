@@ -1,0 +1,24 @@
+<!-- pages/network-test/network-test.wxml -->
+<view class="container">
+  <view class="title">网络请求测试</view>
+  
+  <view class="button-group">
+    <button type="primary" bindtap="testGetRequest">测试GET请求</button>
+    <button type="primary" bindtap="testPostRequest">测试POST请求</button>
+  </view>
+
+  <view class="result-section">
+    <view class="section-title">请求结果：</view>
+    <view class="result-content">
+      <text>{{requestResult}}</text>
+    </view>
+  </view>
+
+  <view class="status-section">
+    <view class="section-title">网络状态：</view>
+    <view class="status-content">
+      <text>网络类型：{{networkType}}</text>
+      <text>是否联网：{{isConnected ? '是' : '否'}}</text>
+    </view>
+  </view>
+</view> 

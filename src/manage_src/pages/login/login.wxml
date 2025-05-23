@@ -1,0 +1,34 @@
+<!-- pages/login/login.wxml -->
+<view class="login-container">
+  <view class="login-card">
+    <!-- 用户名输入 -->
+    <view class="input-group">
+      <text class="label">用户名</text>
+      <input 
+        placeholder="请输入用户名"
+        value="{{username}}"
+        bindinput="onUsernameInput"
+        class="input-box"
+      />
+    </view>
+
+    <!-- 密码输入 -->
+    <view class="input-group">
+      <text class="label">密码</text>
+      <input 
+        placeholder="请输入密码"
+        value="{{password}}"
+        bindinput="onPasswordInput"
+        password="{{true}}"
+        class="input-box"
+      />
+    </view>
+
+    <!-- 登录按钮 -->
+    <button 
+      type="primary" 
+      class="submit-btn"
+      bindtap="handleLogin"
+    >登录</button>
+  </view>
+</view>

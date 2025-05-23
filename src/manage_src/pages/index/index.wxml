@@ -1,0 +1,22 @@
+<!-- pages/index/index.wxml -->
+<view class="index-container">
+  <view class="welcome-text">欢迎来到移动商务平台后台管理系统</view>
+  <view class="management-section">
+    <view class="management-item" bindtap="onUserManage">
+      <image class="management-icon" src="/images/user.svg" mode="aspectFit"></image>
+      <text class="management-text">用户管理</text>
+    </view>
+    <view class="management-item" bindtap="navigateToBookManagement">
+      <image class="management-icon" src="/images/book.svg" mode="aspectFit"></image>
+      <text class="management-text">书籍管理</text>
+    </view>
+    <view class="management-item" bindtap="onAuthorManage">
+      <image class="management-icon" src="/images/author.png" mode="aspectFit"></image>
+      <text class="management-text">作者管理</text>
+    </view>
+    <view class="management-item" bindtap="navigateToOrder">
+      <image class="management-icon" src="/images/order.svg" mode="aspectFit"></image>
+      <text class="management-text">订单管理</text>
+    </view>
+  </view>
+</view>

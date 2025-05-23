@@ -1,0 +1,241 @@
+.container {
+  padding: 30rpx;
+  background-color: #f5f6fa;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading-spinner {
+  width: 60rpx;
+  height: 60rpx;
+  border: 6rpx solid #f3f3f3;
+  border-top: 6rpx solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.no-permission {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #e74c3c;
+  font-size: 32rpx;
+}
+
+.edit-form {
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  margin-bottom: 40rpx;
+}
+
+.form-header {
+  margin-bottom: 40rpx;
+  text-align: center;
+}
+
+.form-header .title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.form-section {
+  margin-bottom: 40rpx;
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  color: #7f8c8d;
+  margin-bottom: 20rpx;
+  padding-left: 20rpx;
+  border-left: 8rpx solid #3498db;
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.label {
+  display: block;
+  font-size: 28rpx;
+  color: #34495e;
+  margin-bottom: 12rpx;
+  font-weight: 500;
+}
+
+.input {
+  width: 100%;
+  height: 80rpx;
+  background: #f8f9fa;
+  border: 2rpx solid #e9ecef;
+  border-radius: 12rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  color: #2c3e50;
+  box-sizing: border-box;
+}
+
+.input:disabled {
+  background: #f1f2f6;
+  color: #95a5a6;
+}
+
+.textarea {
+  width: 100%;
+  height: 200rpx;
+  background: #f8f9fa;
+  border: 2rpx solid #e9ecef;
+  border-radius: 12rpx;
+  padding: 12rpx 16rpx;
+  font-size: 28rpx;
+  color: #2c3e50;
+  box-sizing: border-box;
+  overflow-y: auto;
+  line-height: 1.5;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 20rpx;
+}
+
+.image-container {
+  background: #f8f9fa;
+  border: 2rpx solid #e9ecef;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cover-image {
+  width: 300rpx;
+  height: 400rpx;
+  margin-bottom: 20rpx;
+  border-radius: 8rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.image-placeholder {
+  width: 300rpx;
+  height: 400rpx;
+  background: #f1f2f6;
+  border-radius: 8rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.placeholder-text {
+  color: #95a5a6;
+  font-size: 28rpx;
+}
+
+.image-actions {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 20rpx;
+}
+
+.action-btn {
+  min-width: 200rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  font-size: 28rpx;
+  border-radius: 36rpx;
+  padding: 0 30rpx;
+  margin: 0;
+  background: #f8f9fa;
+  color: #2c3e50;
+  border: 2rpx solid #e9ecef;
+}
+
+.action-btn.primary {
+  background: #007AFF;
+  color: #ffffff;
+  border: none;
+}
+
+.action-btn.delete {
+  background: #e74c3c;
+  color: #ffffff;
+  border: none;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 20rpx;
+  margin-top: 40rpx;
+}
+
+.cancel-btn, .submit-btn {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  margin: 0;
+}
+
+.cancel-btn {
+  background: #f8f9fa;
+  color: #2c3e50;
+  border: 2rpx solid #e9ecef;
+}
+
+.submit-btn {
+  background: #007AFF;
+  color: #ffffff;
+  border: none;
+}
+
+.submit-btn.loading {
+  opacity: 0.8;
+}
+
+.stock-input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stock-btn {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 36rpx;
+  background: #f1f2f6;
+  border: 2rpx solid #e9ecef;
+  border-radius: 8rpx;
+  margin: 0 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stock-input {
+  width: 100rpx;
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+} 

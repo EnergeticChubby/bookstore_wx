@@ -1,0 +1,65 @@
+<view class="container">
+  <view class="loading" wx:if="{{isLoading}}">
+    <view class="loading-spinner"></view>
+  </view>
+  <view class="no-permission" wx:elif="{{!hasPermission}}">
+    <text>没有权限编辑</text>
+  </view>
+  <scroll-view class="edit-form" scroll-y wx:else>
+    <view class="form-header">
+      <text class="title">编辑作者信息</text>
+    </view>
+
+    <view class="form-section">
+      <view class="section-title">基本信息</view>
+      <view class="form-item">
+        <text class="label">姓名</text>
+        <input class="input" value="{{formData.name}}" data-field="name" bindinput="onInputChange" placeholder="请输入作者姓名" />
+      </view>
+    </view>
+
+    <view class="form-section">
+      <view class="section-title">详细信息</view>
+      <view class="form-item">
+        <text class="label">简介</text>
+        <textarea 
+          class="textarea" 
+          value="{{formData.biography}}" 
+          data-field="biography" 
+          bindinput="onInputChange"
+          placeholder="请输入作者简介"
+          maxlength="-1"
+          show-confirm-bar="{{false}}"
+          cursor-spacing="20"
+          hold-keyboard="{{true}}"
+          adjust-position="{{false}}"
+          fixed="{{true}}"
+        />
+      </view>
+    </view>
+
+    <view class="form-section">
+      <view class="section-title">作者照片</view>
+      <view class="image-container">
+        <image 
+          wx:if="{{formData.photo}}" 
+          src="{{formData.photo}}" 
+          mode="aspectFit" 
+          class="author-image"
+        />
+        <view class="image-placeholder" wx:else>
+          <text class="placeholder-text">暂无作者照片</text>
+        </view>
+        <view class="image-actions">
+          <button class="action-btn primary" bindtap="chooseImage">选择图片</button>
+          <button class="action-btn delete" bindtap="deleteImage" wx:if="{{formData.photo}}">删除图片</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-actions">
+      <button class="cancel-btn" bindtap="onCancel">取消</button>
+      <button class="submit-btn" bindtap="onSubmit" loading="{{loading}}">保存修改</button>
+    </view>
+  </scroll-view>
+</view> 

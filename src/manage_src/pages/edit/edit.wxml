@@ -1,0 +1,63 @@
+<!-- pages/edit/edit.wxml -->
+<view class="container">
+  <view class="form">
+    <view class="form-item">
+      <text class="label">操作员密码</text>
+      <input 
+        class="input" 
+        type="password" 
+        placeholder="请输入操作员密码" 
+        bindinput="onPasswordInput"
+        password
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">新密码</text>
+      <input 
+        class="input" 
+        type="password" 
+        placeholder="请输入新密码（可选）" 
+        bindinput="onNewPasswordInput"
+        password
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">状态</text>
+      <picker 
+        bindchange="onStatusChange" 
+        value="{{statusIndex}}" 
+        range="{{statusOptions}}"
+      >
+        <view class="picker">
+          {{statusOptions[statusIndex]}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">表格权限</text>
+      <view class="permission-grid">
+        <view class="permission-row" wx:for="{{tableOptions}}" wx:key="*this">
+          <text class="table-name">{{item}}</text>
+          <picker 
+            bindchange="onTablePermissionChange" 
+            value="{{tablePermissions[item] || 0}}" 
+            range="{{permissionLevels}}"
+            data-table="{{item}}"
+          >
+            <view class="picker">
+              {{permissionLevels[tablePermissions[item] || 0]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-actions">
+      <button class="btn btn-default" bindtap="handleCancel">取消</button>
+      <button class="btn btn-primary" bindtap="handleEdit">确认</button>
+    </view>
+  </view>
+</view> 

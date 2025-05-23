@@ -1,0 +1,88 @@
+<!-- pages/author/author.wxml -->
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <input 
+      type="text" 
+      placeholder="搜索作者" 
+      value="{{searchQuery}}"
+      bindinput="onSearchInput"
+    />
+    <button bindtap="onSearch">搜索</button>
+  </view>
+
+  <!-- 加载中显示 -->
+  <view class="loading" wx:if="{{isLoading && authors.length === 0}}">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 权限不足提示 -->
+  <view class="no-permission" wx:elif="{{!hasPermission && permissionChecked}}">
+    <text>没有权限查看该页面</text>
+  </view>
+
+  <!-- 作者列表 -->
+  <view class="author-list" wx:elif="{{hasPermission}}">
+    <!-- 无数据提示 -->
+    <view class="no-data" wx:if="{{!isLoading && authors.length === 0}}">
+      <text>暂无作者数据</text>
+    </view>
+
+    <view class="author-item" wx:for="{{authors}}" wx:key="author_id">
+      <view class="author-header">
+        <view class="author-name-container">
+          <text class="author-name">{{item.name}}</text>
+        </view>
+      </view>
+      <view class="author-info">
+        <view class="info-grid">
+          <view class="info-cell">
+            <text class="label">作者ID:</text>
+            <text class="value">{{item.author_id}}</text>
+          </view>
+          <view class="info-cell">
+            <text class="label">作品数量:</text>
+            <text class="value">{{item.book_count}}</text>
+          </view>
+        </view>
+        <view class="bio-row">
+          <text class="label">简介:</text>
+          <text class="value">{{item.biography || '暂无简介'}}</text>
+        </view>
+      </view>
+      <view class="actions">
+        <button class="edit-bio-btn" bindtap="onEditAuthor" data-id="{{item.author_id}}">修改简介</button>
+      </view>
+    </view>
+
+    <!-- 分页控件 -->
+    <view class="pagination {{isSearching ? 'isSearching' : ''}}" wx:if="{{authors.length > 0}}">
+      <view class="page-controls">
+        <button 
+          class="page-btn" 
+          bindtap="prevPage" 
+          disabled="{{currentPage <= 1}}"
+        >上一页</button>
+        <view class="page-input-wrapper">
+          <input 
+            type="number" 
+            class="page-input" 
+            value="{{currentPage}}"
+            bindinput="onPageInput"
+          />
+        </view>
+        <text class="page-separator">/</text>
+        <text class="total-pages">{{totalPages}}</text>
+        <button 
+          class="confirm-btn" 
+          bindtap="onPageInputConfirm"
+        >确定</button>
+        <button 
+          class="page-btn" 
+          bindtap="nextPage" 
+          disabled="{{currentPage >= totalPages}}"
+        >下一页</button>
+      </view>
+    </view>
+  </view>
+</view> 

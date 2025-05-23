@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/personal/personal",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/delete/delete",
+    "pages/edit/edit",
+    "pages/user/user",
+    "pages/book/book",
+    "pages/order/order",
+    "pages/edit_user/edit_user",
+    "pages/edit_order/edit_order",
+    "pages/author/author",
+    "pages/edit_book/edit_book",
+    "pages/add_book/add_book",
+    "pages/edit_intro/edit_intro"
+  ],
+  "window": {
+    "navigationBarTitleText": "移动商务平台",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/首页.png",
+        "selectedIconPath": "images/首页-active.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "我的",
+        "iconPath": "images/我的.png",
+        "selectedIconPath": "images/我的-active.png"
+      }
+    ],
+    "color": "#999999",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 60000
+  }
+}

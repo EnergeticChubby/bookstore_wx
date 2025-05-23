@@ -1,0 +1,73 @@
+<!-- Page.wxml -->
+<view class="container">
+  <!-- Search Bar -->
+  <view class="search-bar" bindtap="navigateToSearch">
+    <image class="search-icon" src="/images/search.png" mode="aspectFit"></image>
+    <text class="search-placeholder">Search Books</text>
+    </view>
+
+  <!-- Horizontal Book List -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">Popular Books</text>
+      <view class="more-link" bindtap="navigateToHotList">
+        <text>More</text>
+        <image class="arrow-icon" src="/images/arrow-right.png" mode="aspectFit"></image>
+                            </view>
+                        </view>
+    <scroll-view class="book-scroll" scroll-x="true" show-scrollbar="false">
+      <view class="book-shelf">
+        <view class="book-row" wx:for="{{[0,1]}}" wx:key="row">
+          <view class="book-item" wx:for="{{bookRows[index]}}" wx:key="id" bindtap="navigateToDetail" data-book="{{item}}">
+            <image class="book-cover" src="{{item.cover_url}}" mode="aspectFill"></image>
+            <view class="book-info-horizontal">
+                <view class="book-rank">No.{{item.rank}}</view>
+              <rich-text class="book-title" nodes="{{item.title}}"></rich-text>
+                <view class="book-meta">
+                  <text class="book-category">{{item.category}}</text>
+                  <text class="dot">·</text>
+              </view>
+              <view class="book-rating-corner">
+                <view class="book-rating">
+                  <image src="/images/tabbar/star.png" class="star-icon"/>
+                  <text class="rating-text">{{item.rating || '4.5'}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        </view>
+    </scroll-view>
+            </view>
+
+  <!-- Best Sellers 瀑布流网格布局 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">Best Sellers</text>
+            </view>
+    <view class="book-list-2col">
+      <view class="book-card" wx:for="{{recommendBooks}}" wx:key="id" bindtap="navigateToDetail" data-book="{{item}}">
+        <view class="book-cover-area" style="background: {{item.bgColor || '#f7f7f7'}}">
+          <image class="book-cover" src="{{item.cover_url}}" mode="aspectFill"></image>
+        </view>
+        <view class="book-info-area">
+          <view class="book-title-row">
+            <rich-text class="book-title" nodes="{{item.title}}"></rich-text>
+            <view class="book-rating">
+              <image src="/images/tabbar/star.png" class="star-icon"/>
+              <text class="rating-text">{{item.rating}}</text>
+            </view>
+                    </view>
+          <view class="book-author">{{item.author}}</view>
+          <view class="book-bottom-row">
+            <view class="book-price">${{item.price}}</view>
+            <image class="arrow-icon" src="/images/tabbar/arrow.png"/>
+          </view>
+            </view>
+        </view>
+    </view>
+</view>
+    
+  <!-- Loading More -->
+  <view class="loading" wx:if="{{loading}}">Loading...</view>
+</view>

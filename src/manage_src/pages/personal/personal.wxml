@@ -1,0 +1,82 @@
+<!-- pages/personal/personal.wxml -->
+<scroll-view scroll-y class="scroll-container">
+  <view class="personal-container" wx:if="{{!isPageLoading}}">
+    <view class="user-section">
+      <view class="avatar-container">
+        <view class="avatar-placeholder">
+          <text class="avatar-text">{{avatarText}}</text>
+        </view>
+      </view>
+      <view class="user-info">
+        <text class="username">{{userInfo.username || '未登录'}}</text>
+        <text class="user-status" wx:if="{{userInfo.status}}">
+          状态：{{userInfo.status === 'active' ? '正常' : '禁用'}}
+        </text>
+      </view>
+    </view>
+
+    <view class="divider-line"></view>
+
+    <view class="permissions-section" wx:if="{{userInfo.username}}">
+      <view class="section-title">
+        <image class="section-icon" src="/images/message.svg" mode="aspectFit"></image>
+        <text>主表权限信息</text>
+      </view>
+      
+      <view class="permission-levels">
+        <view class="level-item" wx:for="{{filteredPermissionsByLevel}}" wx:for-index="level" wx:for-item="tables" wx:key="level">
+          <view class="level-title">{{permissionLevels[level] || level}}</view>
+          <view class="level-tables">
+            <text wx:for="{{tables}}" wx:key="*this" class="table-tag">{{item}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="divider-line"></view>
+
+    <view class="menu-list">
+      <block wx:if="{{!userInfo.username}}">
+        <navigator url="/pages/login/login" class="menu-item login-item">
+          <image class="menu-icon" src="/images/login.svg" mode="aspectFit"></image>
+          <text class="menu-text">立即登录</text>
+          <text class="arrow">›</text>
+        </navigator>
+        <view class="menu-item">
+          <image class="menu-icon" src="/images/about.svg" mode="aspectFit"></image>
+          <text class="menu-text">关于我们</text>
+          <text class="arrow">›</text>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="menu-item" wx:if="{{userInfo.username}}" bindtap="handleAddAdmin">
+          <image class="menu-icon" src="/images/add.svg" mode="aspectFit"></image>
+          <text class="menu-text">添加管理员</text>
+          <text class="arrow">›</text>
+        </view>
+
+        <view class="menu-item" wx:if="{{userInfo.username}}" bindtap="handleDeleteAdmin">
+          <image class="menu-icon" src="/images/delete.svg" mode="aspectFit"></image>
+          <text class="menu-text">后台管理员</text>
+          <text class="arrow">›</text>
+        </view>
+
+        <view class="menu-item">
+          <image class="menu-icon" src="/images/about.svg" mode="aspectFit"></image>
+          <text class="menu-text">关于我们</text>
+          <text class="arrow">›</text>
+        </view>
+
+        <view class="menu-item" bindtap="handleLogout">
+          <image class="menu-icon" src="/images/exit.svg" mode="aspectFit"></image>
+          <text class="menu-text logout-text">退出登录</text>
+          <text class="arrow">›</text>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="loading-container" wx:if="{{isPageLoading}}">
+    <view class="loading-text">加载中...</view>
+  </view>
+</scroll-view>

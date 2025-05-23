@@ -1,0 +1,51 @@
+<!--pages/my/my.wxml-->
+<view class="container">
+  <!-- 用户信息区域 -->
+  <view class="user-info">
+    <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+    <text class="nickname">{{userInfo.nickName}}</text>
+  </view>
+
+  <!-- 功能菜单列表 -->
+  <view class="menu-list">
+    <!-- 个人信息 -->
+    <view class="menu-item" bindtap="goToProfile">
+      <image class="menu-icon" src="/images/tabbar/user.png"></image>
+      <text class="menu-text">个人信息</text>
+      <image class="arrow-icon" src="/images/arrow-right.png"></image>
+    </view>
+
+    <!-- 我的订单 -->
+    <view class="menu-item" bindtap="goToOrders">
+      <image class="menu-icon" src="/images/tabbar/order.png"></image>
+      <text class="menu-text">我的订单</text>
+      <image class="arrow-icon" src="/images/arrow-right.png"></image>
+    </view>
+
+    <!-- 浏览历史 -->
+    <view class="menu-item" bindtap="goToHistory">
+      <image class="menu-icon" src="/images/tabbar/card.png"></image>
+      <text class="menu-text">浏览历史</text>
+      <image class="arrow-icon" src="/images/arrow-right.png"></image>
+    </view>
+
+    <!-- 退出登录 -->
+    <view class="menu-item logout" bindtap="handleLogout">
+      <image class="menu-icon" src="/images/tabbar/logout.png"></image>
+      <text class="menu-text">退出登录</text>
+      <image class="arrow-icon" src="/images/arrow-right.png"></image>
+    </view>
+  </view>
+</view>
+
+<view class="history-title">Browsing History</view>
+<view class="history-list" wx:if="{{historyBooks.length > 0}}">
+  <view class="history-item" wx:for="{{historyBooks}}" wx:key="book_id">
+    <image class="history-cover" src="{{item.cover_url ? 'http://8.134.168.88:8000' + item.cover_url : '/images/test.jpg'}}" mode="aspectFill"></image>
+    <view class="history-info">
+      <view class="history-title">{{item.isbn_name}}</view>
+      <view class="history-author">{{item.authors && item.authors.length > 0 ? item.authors.join(', ') : ''}}</view>
+    </view>
+  </view>
+</view>
+<view wx:else class="empty-history">No browsing history yet.</view>

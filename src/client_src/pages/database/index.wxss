@@ -1,0 +1,97 @@
+.container {
+  padding: 20rpx;
+}
+
+.section {
+  margin-bottom: 40rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  color: #333;
+}
+
+/* 表格样式 */
+.table {
+  width: 100%;
+  border: 1rpx solid #eee;
+}
+
+.table-row {
+  display: flex;
+  border-bottom: 1rpx solid #eee;
+}
+
+.table-row.header {
+  background: #f8f8f8;
+  font-weight: bold;
+}
+
+.table-cell {
+  flex: 1;
+  padding: 20rpx;
+  text-align: center;
+}
+
+/* 输入框和按钮样式 */
+.input-group {
+  display: flex;
+  gap: 20rpx;
+}
+
+.input {
+  flex: 1;
+  height: 80rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+}
+
+.submit-btn {
+  width: 160rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #07c160;
+  color: #fff;
+  font-size: 28rpx;
+}
+
+/* 回复区域样式 */
+.response-box {
+  background: #f8f8f8;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  min-height: 100rpx;
+}
+
+.refresh-btn {
+  margin-top: 20rpx;
+  background: #1989fa;
+  color: #fff;
+  font-size: 28rpx;
+}
+
+.book-pages {
+  display: flex;
+  flex-direction: row;
+}
+.book-page {
+  width: 360rpx;      /* 2列宽度，120rpx*2+margin等，按实际调整 */
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  margin-right: 24rpx;
+}
+.book-row {
+  display: flex;
+  flex-direction: row;
+}
+.book-item {
+  width: 160rpx;      /* 2列 */
+} 

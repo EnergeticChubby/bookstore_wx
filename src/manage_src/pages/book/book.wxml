@@ -1,0 +1,88 @@
+<!--pages/book/book.wxml-->
+<view class="book-container">
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索书名/ISBN" value="{{searchQuery}}" bindinput="onSearchInput" />
+    <button class="search-btn" bindtap="onSearch">搜索</button>
+  </view>
+  
+  <!-- 加载中提示 -->
+  <view wx:if="{{isLoading}}" class="loading">加载中...</view>
+  
+  <!-- 非加载状态显示内容 -->
+  <block wx:else>
+    <!-- 书籍列表 -->
+    <view class="book-list">
+      <!-- 无搜索结果提示 -->
+      <view wx:if="{{!books || books.length === 0}}" class="no-data">
+        <text>暂无书籍数据</text>
+      </view>
+      
+      <block wx:else>
+        <view class="book-stats">
+          <text>共 {{allBooks.length}} 本书籍</text>
+          <text>第 {{currentPage}}/{{totalPages}} 页</text>
+        </view>
+        <view class="book-item" wx:for="{{books}}" wx:key="id">
+          <image class="book-cover" src="http://8.134.168.88:8000{{item.cover_url}}" mode="aspectFill"></image>
+          <view class="book-info">
+            <view class="book-title">{{item.isbn_name}}</view>
+            <view class="book-meta">
+              <text>ISBN：{{item.ISBN}}</text>
+              <text>分类：{{permissions.category === 'viewer' ? item.category_name : 'no permission'}}</text>
+              <text>出版社：{{permissions.publisher === 'viewer' ? item.publisher_name : 'no permission'}}</text>
+              <text>价格：¥{{item.price}}</text>
+              <text>库存：{{item.stock}}</text>
+              <text>状态：{{item.status}}</text>
+            </view>
+            <view class="book-authors">
+              <text class="authors-label">作者：</text>
+              <view wx:for="{{item.authors}}" wx:key="*this" wx:for-item="author" wx:if="{{permissions.author === 'viewer'}}" class="author-name">{{author}}</view>
+            </view>
+            <view class="book-desc">{{item.description}}</view>
+            <view class="book-actions">
+              <button 
+                class="edit-btn" 
+                size="mini" 
+                bindtap="navigateToEditBook" 
+                data-book-id="{{item.book_id}}"
+              >编辑</button>
+            </view>
+          </view>
+        </view>
+
+        <!-- 分页控件 -->
+        <view class="pagination">
+          <button 
+            class="page-btn" 
+            bindtap="prevPage" 
+            disabled="{{currentPage === 1}}"
+          >上一页</button>
+          <view class="page-input-wrapper">
+            <input 
+              class="page-input" 
+              type="number" 
+              value="{{currentPage}}" 
+              bindinput="onPageInput"
+            />
+          </view>
+          <text class="page-separator">/</text>
+          <text class="total-pages">{{totalPages}}</text>
+          <button class="confirm-btn" bindtap="onPageInputConfirm">确定</button>
+          <button 
+            class="page-btn" 
+            bindtap="nextPage" 
+            disabled="{{currentPage === totalPages}}"
+          >下一页</button>
+        </view>
+      </block>
+    </view>
+  </block>
+
+  <!-- 添加书籍按钮 -->
+  <view class="add-book-btn-wrapper">
+    <button 
+      class="add-book-btn" 
+      bindtap="navigateToAddBook"
+    >添加书籍</button>
+  </view>
+</view>

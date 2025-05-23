@@ -1,0 +1,31 @@
+<!--pages/hot-list/hot-list.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">书籍热度榜单</text>
+  </view>
+
+  <view class="book-list">
+    <view class="book-item" wx:for="{{hotBooks}}" wx:key="id" bindtap="navigateToDetail" data-id="{{item.id}}">
+      <view class="book-content">
+        <image class="book-image" src="{{item.coverUrl}}" mode="aspectFill"></image>
+        <view class="book-info">
+          <view class="book-header">
+            <text class="rank-text">{{item.rank}}</text>
+            <text class="book-title">{{item.title}}</text>
+          </view>
+          <view class="book-meta">
+            <text class="book-category">{{item.category}}</text>
+            <text class="dot">·</text>
+            <view class="hot-value">
+              <image class="hot-icon" src="/images/hot.png"></image>
+              <text>{{item.hotValue}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载更多提示 -->
+  <view class="loading" wx:if="{{loading}}">加载中...</view>
+</view> 

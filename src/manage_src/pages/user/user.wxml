@@ -1,0 +1,45 @@
+<!-- pages/user/user.wxml -->
+<view class="container">
+  <!-- 加载中显示 -->
+  <view class="loading" wx:if="{{isLoading}}">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 权限不足提示 -->
+  <view class="no-permission" wx:elif="{{!hasPermission && permissionChecked}}">
+    <text>没有权限查看该页面</text>
+  </view>
+
+  <!-- 用户列表 -->
+  <view class="user-list" wx:elif="{{hasPermission}}">
+    <view class="user-item" wx:for="{{users}}" wx:key="id">
+      <view class="user-info">
+        <view class="info-grid">
+          <view class="info-cell">
+            <text class="label">用户名:</text>
+            <text class="value">{{item.username}}</text>
+          </view>
+          <view class="info-cell">
+            <text class="label">姓名:</text>
+            <text class="value">{{item.real_name || '未设置'}}</text>
+          </view>
+          <view class="info-cell">
+            <text class="label">邮箱:</text>
+            <text class="value">{{item.email || '未设置'}}</text>
+          </view>
+          <view class="info-cell">
+            <text class="label">性别:</text>
+            <text class="value">{{item.gender === 'M' ? 'Male' : item.gender === 'F' ? 'Female' : item.gender === 'O' ? 'Other' : '未设置'}}</text>
+          </view>
+        </view>
+        <view class="status-row">
+          <text class="label">状态:</text>
+          <text class="value">{{item.status || '未设置'}}</text>
+        </view>
+      </view>
+      <view class="actions">
+        <button class="edit-btn" bindtap="onEditUser" data-id="{{item.user_id}}">编辑</button>
+      </view>
+    </view>
+  </view>
+</view>

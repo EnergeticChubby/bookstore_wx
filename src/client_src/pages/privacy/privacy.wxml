@@ -1,0 +1,51 @@
+<view class="container">
+  <view class="privacy-header">
+    <image class="logo" src="/images/logo.png" mode="aspectFit"></image>
+    <text class="title">欢迎使用微信卖书小程序</text>
+  </view>
+
+  <view class="privacy-content">
+    <view class="section">
+      <text class="section-title">隐私政策说明</text>
+      <text class="section-text">我们非常重视您的隐私保护。在您使用我们的服务时，我们可能会收集以下信息：</text>
+      <view class="privacy-list">
+        <view class="privacy-item">
+          <text class="dot">•</text>
+          <text>您的微信头像和昵称，用于个性化展示</text>
+        </view>
+        <view class="privacy-item">
+          <text class="dot">•</text>
+          <text>您的唯一标识（openID），用于账号管理</text>
+        </view>
+        <view class="privacy-item">
+          <text class="dot">•</text>
+          <text>您的浏览记录和购买记录，用于提供更好的服务</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="section">
+      <text class="section-title">信息使用说明</text>
+      <text class="section-text">我们承诺：</text>
+      <view class="privacy-list">
+        <view class="privacy-item">
+          <text class="dot">•</text>
+          <text>不会向第三方出售或出租您的个人信息</text>
+        </view>
+        <view class="privacy-item">
+          <text class="dot">•</text>
+          <text>仅在必要范围内使用您的信息</text>
+        </view>
+        <view class="privacy-item">
+          <text class="dot">•</text>
+          <text>采取严格的数据安全保护措施</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="privacy-footer">
+    <button class="auth-btn" bindtap="handleAuth">同意并继续</button>
+    <text class="privacy-link" bindtap="showPrivacyDetail">查看完整隐私政策</text>
+  </view>
+</view> 

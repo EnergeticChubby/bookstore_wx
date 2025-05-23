@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="profile-header">
+    <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+  </view>
+
+  <view class="info-list">
+    <view class="info-item">
+      <text class="label">真实姓名</text>
+      <text class="value">{{userInfo.real_name}}</text>
+    </view>
+    
+    <view class="info-item">
+      <text class="label">OpenID</text>
+      <text class="value">{{userInfo.openid}}</text>
+    </view>
+    
+    <view class="info-item">
+      <text class="label">性别</text>
+      <text class="value">{{userInfo.gender}}</text>
+    </view>
+    
+    <view class="info-item">
+      <text class="label">电子邮箱</text>
+      <text class="value">{{userInfo.email}}</text>
+    </view>
+  </view>
+</view> 

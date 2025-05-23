@@ -1,0 +1,65 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/category/category",
+    "pages/cart/cart",
+    "pages/my/my",
+    "pages/search/search",
+    "pages/orders/orders",
+    "pages/favorites/favorites",
+    "pages/coupons/coupons",
+    "pages/settings/settings",
+    "pages/login/login",
+    "pages/checkout/checkout",
+    "pages/hot-list/hot-list",
+    "pages/network-test/network-test",
+    "pages/book-info/book-info",
+    "pages/privacy/privacy",
+    "pages/privacy-detail/privacy-detail",
+    "pages/register/register",
+    "pages/history/history",
+    "pages/profile/profile",
+    "pages/order/order",
+    "pages/order-list/order-list"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "微信卖书小程序",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#ff4d4f",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabbar/home.png",
+        "selectedIconPath": "images/tabbar/home_active.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "images/tabbar/all.png",
+        "selectedIconPath": "images/tabbar/all-fill.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/tabbar/购物车空.png",
+        "selectedIconPath": "images/tabbar/购物车满.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/tabbar/个人.png",
+        "selectedIconPath": "images/tabbar/个人_2.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

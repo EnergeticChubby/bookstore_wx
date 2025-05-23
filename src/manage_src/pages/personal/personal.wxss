@@ -1,0 +1,208 @@
+/* pages/personal/personal.wxss */
+page {
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+.scroll-container {
+  height: calc(100vh - 100rpx); /* 减去底部导航栏的高度 */
+  background-color: #f5f5f5;
+}
+
+.personal-container {
+  position: relative;
+  background-color: #f5f5f5;
+  padding: 20rpx;
+  padding-bottom: 180rpx; /* 增加底部padding，确保可以看到退出登录按钮 */
+  box-sizing: border-box;
+}
+
+.user-section {
+  background-color: #fff;
+  padding: 30rpx;
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.avatar-container {
+  margin-right: 30rpx;
+}
+
+.avatar-placeholder {
+  width: 120rpx;
+  height: 120rpx;
+  background-color: #007AFF;
+  border-radius: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-text {
+  color: #fff;
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+.user-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.username {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.user-status {
+  font-size: 24rpx;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.divider-line {
+  height: 20rpx;
+}
+
+.permissions-section {
+  background-color: #fff;
+  padding: 30rpx;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  color: #333;
+}
+
+.section-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 12rpx;
+}
+
+.permission-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.level-item {
+  background-color: #f8f8f8;
+  padding: 20rpx;
+  border-radius: 8rpx;
+}
+
+.level-title {
+  font-size: 28rpx;
+  color: #007AFF;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.level-tables {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+}
+
+.table-tag {
+  background-color: #e8f3ff;
+  color: #007AFF;
+  padding: 6rpx 16rpx;
+  border-radius: 6rpx;
+  font-size: 24rpx;
+}
+
+.menu-list {
+  background-color: #fff;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 40rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-text {
+  flex: 1;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.menu-item .menu-icon[src*="delete.svg"] + .menu-text {
+  margin-left: -10rpx;
+}
+
+.menu-item .menu-icon[src*="delete.svg"] {
+  width: 56rpx;
+  height: 56rpx;
+  margin-right: 20rpx;
+  margin-left: -10rpx;
+  margin-top: -2rpx;
+}
+
+.logout-text {
+  color: #ff4d4f;
+}
+
+.arrow {
+  color: #999;
+  font-size: 32rpx;
+}
+
+.login-item {
+  background-color: #007AFF;
+}
+
+.login-item .menu-text {
+  color: #fff;
+}
+
+.login-item .arrow {
+  color: #fff;
+}
+
+.menu-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.loading-text {
+  color: #666;
+  font-size: 28rpx;
+}

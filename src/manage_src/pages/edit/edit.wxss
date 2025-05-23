@@ -1,0 +1,296 @@
+/* pages/edit/edit.wxss */
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 0;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding-top: 120rpx;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #666;
+}
+
+.no-permission {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #ff4d4f;
+  font-size: 32rpx;
+  text-align: center;
+  padding: 0 40rpx;
+}
+
+.user-list {
+  padding: 20rpx;
+}
+
+.user-item {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+}
+
+.user-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #f0f0f0;
+  position: relative;
+}
+
+.user-title {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  flex: 1;
+}
+
+.username {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.status {
+  font-size: 24rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.status-active {
+  background-color: #e6f7ff;
+  color: #1890ff;
+}
+
+.status-inactive {
+  background-color: #fff1f0;
+  color: #ff4d4f;
+}
+
+.permissions-section {
+  padding: 10rpx 0;
+}
+
+.permission-row {
+  margin-bottom: 20rpx;
+  padding: 20rpx;
+  background-color: #fafafa;
+  border-radius: 8rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.table-name {
+  font-size: 28rpx;
+  color: #333;
+  width: 200rpx;
+  flex-shrink: 0;
+}
+
+.picker {
+  flex: 1;
+  min-width: 400rpx;
+}
+
+.permission-buttons {
+  display: flex;
+  gap: 16rpx;
+}
+
+.permission-btn {
+  font-size: 24rpx;
+  padding: 8rpx 24rpx;
+  border-radius: 6rpx;
+  background-color: #fff;
+  color: #666;
+  border: 2rpx solid #d9d9d9;
+  line-height: 1.4;
+}
+
+.permission-btn.active {
+  background-color: #e6f7ff;
+  color: #1890ff;
+  border-color: #1890ff;
+}
+
+.form {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 40rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+  margin-bottom: 40rpx;
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.label {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.input {
+  width: 100%;
+  height: 88rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  background-color: #fafafa;
+}
+
+.picker {
+  width: 100%;
+  height: 88rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  padding: 0 24rpx;
+  background-color: #fafafa;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.permission-grid {
+  margin-top: 20rpx;
+}
+
+.form-actions {
+  margin-top: 40rpx;
+  display: flex;
+  gap: 20rpx;
+}
+
+.btn {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  border-radius: 8rpx;
+}
+
+.btn-default {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.btn-primary {
+  background-color: #1296db;
+  color: #fff;
+}
+
+/* 修改picker选择器弹出的选项字体大小 */
+.picker-view-column {
+  font-size: 28rpx !important;
+}
+
+.picker-indicator {
+  height: 88rpx !important;
+}
+
+.picker-mask {
+  background-size: 100% 176rpx !important;
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.modal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 30rpx;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.modal-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.modal-subtitle {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.modal-body {
+  margin-bottom: 30rpx;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 20rpx;
+}
+
+.btn {
+  flex: 1;
+  height: 80rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-default {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.btn-primary {
+  background-color: #1890ff;
+  color: #fff;
+} 

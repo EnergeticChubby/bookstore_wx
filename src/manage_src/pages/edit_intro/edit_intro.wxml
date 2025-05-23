@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="edit-form">
+    <view class="form-item">
+      <text class="label">作者简介</text>
+      <textarea 
+        class="biography-input" 
+        value="{{biography}}" 
+        bindinput="onInput"
+        placeholder="请输入作者简介"
+        maxlength="500"
+        auto-height
+        cursor-spacing="20"
+      />
+    </view>
+    
+    <view class="word-count">{{biography.length}}/500</view>
+    
+    <button 
+      class="submit-btn" 
+      bindtap="submitEdit" 
+      loading="{{isLoading}}"
+      disabled="{{isLoading}}"
+    >
+      保存修改
+    </button>
+  </view>
+</view> 
